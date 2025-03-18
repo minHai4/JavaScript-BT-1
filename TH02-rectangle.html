@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Area</title>
+</head>
+<body>
+    <h1>Tính diện tích hình chữ nhật</h1>
+    <label for="length">Chiều dài:</label>
+    <input type="text" id="length" placeholder="Nhập chiều dài"><br><br>
+    <label for="width">Chiều rộng:</label>
+    <input type="text" id="width" placeholder="Nhập chiều rộng"><br><br>
+    <button onclick="area()">Tính diện tích</button>
+    <p id="result"></p>
+
+    <script>
+        function area() {
+            try {
+            let length = document.getElementById("length").value;
+            let width = document.getElementById("width").value;
+
+            length = parseFloat(length);
+            width = parseFloat(width);
+
+            if (isNaN(length) || isNaN(width)) {
+                throw new Error("Hãy nhập giá trị SỐ cho chiều dài và chiều rộng.");
+            }
+            if (length <= 0 || width <= 0) {
+                throw new Error("Chiều dài và chiều rộng phải là số dương.");
+            }
+
+            let area = length * width;
+            document.getElementById("result").innerText = "Diện tích của hình chữ nhật là: " + area;
+            } catch (error) {
+            document.getElementById("result").innerText = "Lỗi: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
